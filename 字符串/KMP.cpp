@@ -21,7 +21,7 @@ void getNext1() {
 		while (k != -1 && b[j] != b[k]) {
 			k = Next[k];
 		}
-		i++; j++;
+		k++; j++;
 		Next[j] = k;
 	}
 }
