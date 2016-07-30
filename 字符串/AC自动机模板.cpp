@@ -63,7 +63,7 @@ void build(){
 		node* t = que[p++];
 		for(int i = 0; i < K; i ++){
 			if(t->ch[i]){
-				t->ch[i]->fail = t->tail->ch[i];
+				t->ch[i]->fail = t->fail->ch[i];
 				que[q++] = t->ch[i];
 			}
 			else
