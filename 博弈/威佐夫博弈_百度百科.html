@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<!--STATUS OK-->
+<html>
+
+
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="description" content="威佐夫博弈（Wythoff Game）：有两堆各若干个物品，两个人轮流从某一堆或同时从两堆中取同样多的物品，规定每次至少取一个，多者不限，最后取光者得胜。...">
+<title>威佐夫博弈_百度百科</title>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="icon" sizes="any" mask href="//www.baidu.com/img/baidu.svg">
+
+<meta name="keywords" content="威佐夫博弈 威佐夫博奕 威佐夫博弈具体内容： 威佐夫博弈奇异局势有如下性质： 威佐夫博弈详细的证明过程： 威佐夫博弈结论：">
+<meta name="image" content="http://baike.bdimg.com/cms/static/baike.png">
+<script type="text/javascript">
+  void function(g,f,j,c,h,d,b){g.alogObjectName=h,g[h]=g[h]||function(){(g[h].q=g[h].q||[]).push(arguments)},g[h].l=g[h].l||+new Date,d=f.createElement(j),d.async=!0,d.src=c,b=f.getElementsByTagName(j)[0],b.parentNode.insertBefore(d,b)}(window,document,"script","http://img.baidu.com/hunter/alog/alog.min.js","alog");void function(){function c(){return;}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date);alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:c,tti:c,page_ready:c}}();void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>
+<meta name="csrf-token" content="">
+
+<!--[if lte IE 9]>
+<script>
+    (function() {
+      var e = "abbr,article,aside,audio,canvas,datalist,details,dialog,eventsource,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(","),
+        i = e.length;
+      while (i--) {
+        document.createElement(e[i]);
+      }
+    })();
+  </script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma_74e1370.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common-base_5dec560.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/announcement/announcement_b0d7681.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/label/label_461cbe0.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/newSideShare/sideShare_ebee986.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/praise/praise_2120cd2.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/toolButtons/toolButtons_a2c470f.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/toolButtons/userInfo_9ba20c1.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/video/pageMask/pageMask_ff9a193.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma-module_95b08c6.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/mainContent_1a67233.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/lemmaRelation_9f629f5.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/zhixin_1c34583.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/feature/enterprise/creditModule/creditModule_83cd8e5.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/searchHeader_e786bfb.css"/></head>
+
+<script type="text/javascript">
+    alog('speed.set', 'ht', +new Date);
+</script>
+
+<body class="wiki-lemma normal">
+
+
+<div class="header-wrapper">
+<ul class="wgt-userbar">
+<li>
+<a href="http://www.baidu.com/">百度首页</a>
+</li>
+</ul>
+<div class="header">
+<div class="layout">
+<div class="wgt-searchbar wgt-searchbar-main cmn-clearfix">
+<div class="logo-container">
+<a class="logo cmn-inline-block" title="到百科首页" href="/">
+<span class="cmn-baike-logo">
+<em class="cmn-icon cmn-icons cmn-icons_logo-bai"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-du"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-baike"></em>
+</span>
+</a>
+</div>
+<div class="search">
+<div class="nav">
+<a href="http://news.baidu.com/" data-href="http://news.baidu.com/ns?tn=news&cl=2&rn=20&ct=1&fr=bks0000&ie=utf-8&word=">新闻</a><a href="http://www.baidu.com/" data-href="http://www.baidu.com/s?ie=utf-8&fr=bks0000&wd=">网页</a><a href="http://tieba.baidu.com/" data-href="http://tieba.baidu.com/f?ie=utf-8&fr=bks0000&kw=">贴吧</a><a href="http://zhidao.baidu.com/" data-href="http://zhidao.baidu.com/search?pn=0&&rn=10&lm=0&fr=bks0000&word=">知道</a><a href="http://music.baidu.com/" data-href="http://music.baidu.com/search?f=ms&ct=134217728&ie=utf-8&rn=&lm=-1&pn=30fr=bks0000&key=">音乐</a><a href="http://image.baidu.com/" data-href="http://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&nc=1&ie=utf-8&word=">图片</a><a href="http://v.baidu.com/" data-href="http://v.baidu.com/v?ct=301989888&rn=20&pn=0&db=0&s=22&ie=utf-8&fr=bks0000&word=">视频</a><a href="http://map.baidu.com/" data-href="http://map.baidu.com/m?ie=utf-8&fr=bks0000&word=">地图</a><a class="baike">百科</a><a href="http://wenku.baidu.com/" data-href="http://wenku.baidu.com/search?lm=0&od=0&ie=utf-8&fr=bks0000&word=">文库</a>
+</div>
+<div class="form">
+<form id="searchForm" action="/search/word" method="GET" target="_self">
+<input id="query" name="word" type="text" autocomplete="off" autocorrect="off" value="威佐夫博奕" /><button id="search" type="button">进入词条</button><button id="searchLemma" type="button">搜索词条</button><a class="help" href="/help" target="_blank">帮助</a>
+</form>
+<form id="searchLemmaForm" action="/search" method="GET" target="_self">
+<input id="searchLemmaQuery" name="word" type="hidden" />
+<input name="pn" type="hidden" value="0" />
+<input name="rn" type="hidden" value="0" />
+<input name="enc" type="hidden" value="utf8" />
+</form>
+<ul id="suggestion" class="suggestion">
+<div></div>
+<li class="extra">
+<span id="close">关闭</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="navbar-wrapper">
+<div class="wgt-navbar">
+<div class="navbar-bg">
+<div class="navbar-bg-top">
+<div class="navbar-content layout">
+<div class="navbar-content-box">
+<dl class="index ">
+<dt><a href="/">首页</a></dt>
+</dl>
+<dl class="cat ">
+<dt><a>分类</a></dt>
+<dd>
+<div><a href="/art" target="_blank" class="art">艺术</a></div>
+<div><a href="/science" target="_blank" class="technology">科学</a></div>
+<div><a href="/ziran" target="_blank">自然</a></div>
+<div><a href="/wenhua" target="_blank">文化</a></div>
+<div><a href="/dili" target="_blank">地理</a></div>
+<div><a href="/shenghuo" target="_blank">生活</a></div>
+<div><a href="/shehui" target="_blank">社会</a></div>
+<div><a href="/renwu" target="_blank">人物</a></div>
+<div><a href="/jingji" target="_blank">经济</a></div>
+<div><a href="/tiyu" target="_blank">体育</a></div>
+<div><a href="/lishi" target="_blank">历史</a></div>
+</dd>
+</dl>
+<dl class="special ">
+<dt><a>特色百科</a></dt>
+<dd>
+<div><a href="/calendar/" target="_blank">历史上的今天</a></div>
+<div><a href="/museum/" target="_blank">数字博物馆</a></div>
+<div><a href="/shiji/2015?fr=navbar" target="_blank">史记·2015</a></div>
+<div><a href="/city/" target="_blank">城市百科</a></div>
+<div><a href="/operation/worldwar2" target="_blank">二战百科</a></div>
+<div><a href="/feiyi?fr=dhlfeiyi" target="_blank">非遗百科</a></div>
+</dd>
+</dl>
+<dl class="user" >
+<dt><a>用户</a></dt>
+<dd>
+<div><a href="/kedou/" target="_blank">蝌蚪团</a></div>
+<div><a href="/event/ranmeng/" target="_blank">燃梦计划</a></div>
+<div><a href="/task/" target="_blank">百科任务</a></div>
+<div><a href="/mall/" target="_blank">百科商城</a></div>
+</dd>
+</dl>
+<dl class="cooperation" >
+<dt><a>权威合作</a></dt>
+<dd>
+<div><a href="/operation/cooperation#joint" target="_blank">合作模式</a></div>
+<div><a href="/operation/cooperation#issue" target="_blank">常见问题</a></div>
+<div><a href="/operation/cooperation#connection" target="_blank">联系方式</a></div>
+</dd>
+</dl>
+<dl class="mobile" >
+<dt><a>手机百科</a></dt>
+<dd>
+<div><a href="/m#download" target="_blank">客户端</a></div>
+<div><a href="/m#wap" target="_blank">网页版</a></div>
+</dd>
+</dl>
+<div class="usercenter">
+<div><a href="/usercenter" target="_blank"><em class="cmn-icon cmn-icons cmn-icons_navbar-usercenter"></em>个人中心</a></div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="body-wrapper">
+<div class="before-content">
+</div>
+<div class="content-wrapper">
+<div class="content">
+<div class="main-content">
+<div class="top-tool">
+<a class="add-sub-icon" href="javascript:;" title="添加义项" nslog-type="50000101"></a>
+<a href="/divideload/%E5%A8%81%E4%BD%90%E5%A4%AB%E5%8D%9A%E5%BC%88" title="拆分词条" target="_blank" class="split-icon" style="display:none;" nslog-type="50000104"></a>
+<div class="top-collect" nslog="area" nslog-type="50000102">
+<span class="collect-text">收藏</span>
+<div class="collect-tip">查看<a href="/uc/favolemma" target="_blank">我的收藏</a></div>
+</div>
+<a href="javascript:void(0);" class="top-vote" nslog-type="50000103">
+<span class="vote-count">0</span>
+<span class="vote-tip">有用+1</span>
+<span class="voted-tip">已投票</span>
+</a>
+<div class="bdsharebuttonbox top-share" data-tag="top-share">
+<a class="bds_more top-share-icon" data-cmd="more" nslog-type="9067">
+<span class="bds_count share-count" id="j-topShareCount" data-cmd="count">0</span>
+</a>
+</div>
+</div>
+<div style="width:0;height:0;clear:both"></div><dl class="lemmaWgt-lemmaTitle lemmaWgt-lemmaTitle-">
+<dd class="lemmaWgt-lemmaTitle-title">
+<h1 >威佐夫博弈</h1>
+<a href="javascript:;" class="edit-lemma cmn-btn-hover-blue cmn-btn-28 j-edit-link"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+<a class="lock-lemma" target="_blank" href="/view/10812319.htm" title="锁定"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_lock-lemma"></em>锁定</a>
+</dd>
+</dl><span class="view-tip-panel">
+<a class="viewTip-icon" href="/subview/71844/10028254.htm" target="_blank" title="同义词">同义词</a>
+<span class="viewTip-fromTitle">威佐夫博奕</span>一般指威佐夫博弈
+</span>
+<div class="edit-prompt">本词条缺少<strong>名片图</strong>，补充相关内容使词条更完整，还能快速升级，赶紧来<a  class="edit-prompt-link j-edit-link">编辑</a>吧！</div>
+<div class="lemma-summary" label-module="lemmaSummary">
+<div class="para" label-module="para">威佐夫博弈（Wythoff Game）：有两堆各若干个物品，两个人轮流从某一堆或同时从两堆中取同样多的物品，规定每次至少取一个，多者不限，最后取光者得胜。</div>
+</div>
+<div class="basic-info cmn-clearfix">
+<dl class="basicInfo-block basicInfo-left">
+<dt class="basicInfo-item name">中文名</dt>
+<dd class="basicInfo-item value">
+威佐夫博弈
+</dd>
+<dt class="basicInfo-item name">外文名</dt>
+<dd class="basicInfo-item value">
+Wizov game
+</dd>
+</dl><dl class="basicInfo-block basicInfo-right">
+<dt class="basicInfo-item name">领&nbsp;&nbsp;&nbsp;&nbsp;域</dt>
+<dd class="basicInfo-item value">
+数学领域
+</dd>
+<dt class="basicInfo-item name">性&nbsp;&nbsp;&nbsp;&nbsp;质</dt>
+<dd class="basicInfo-item value">
+证明题
+</dd>
+</dl></div>
+<div class="lemmaWgt-lemmaCatalog">
+<div class="lemma-catalog">
+<h2 class="block-title">目录</h2>
+<div class="catalog-list column-3">
+<ol>
+<li class="level1">
+<span class="index">1</span>
+<span class="text"><a href="#1">具体内容：</a></span>
+</li>
+<li class="level1">
+<span class="index">2</span>
+<span class="text"><a href="#2">奇异局势有如下性质：</a></span>
+</li>
+</ol><ol><li class="level1">
+<span class="index">3</span>
+<span class="text"><a href="#3">详细的证明过程：</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#3_1">方法一</a></span>
+</li>
+</ol><ol><li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#3_2">方法二</a></span>
+</li>
+<li class="level1">
+<span class="index">4</span>
+<span class="text"><a href="#4">结论：</a></span>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="anchor-list">
+<a name="1" class="lemma-anchor para-title" ></a>
+<a name="sub20578694_1" class="lemma-anchor " ></a>
+<a name="具体内容：" class="lemma-anchor " ></a>
+</div><div class="para-title level-2" label-module="para-title">
+<h2 class="title-text"><span class="title-prefix">威佐夫博弈</span>具体内容：</h2>
+<a class="edit-icon j-edit-link" data-edit-dl="1" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</div>
+<div class="para" label-module="para">威佐夫博弈（Wythoff Game）：有两堆各若干个物品，两个人轮流从某一堆或同时从两堆中取同样多的物品，规定每次至少取一个，多者不限，最后取光者得胜。</div>
+<div class="para" label-module="para">这种情况下是颇为复杂的。我们用（ak，bk）（ak ≤ bk ,k=0，1，2，...,n)表示两堆物品的数量并称其为局势，如果甲面对（0，0），那么甲已经输了，这种局势我们称为奇异局势。前几个奇异局势是：（0，0）、（1，2）、（3，5）、（4，7）、（6，10）、（8，13）、（9，15）、（11，18）、（12，20）。</div>
+<div class="para" label-module="para">可以看出,a0=b0=0,ak是未在前面出现过的最小自然数,而 bk= ak + k。</div><div class="anchor-list">
+<a name="2" class="lemma-anchor para-title" ></a>
+<a name="sub20578694_2" class="lemma-anchor " ></a>
+<a name="奇异局势有如下性质：" class="lemma-anchor " ></a>
+</div><div class="para-title level-2" label-module="para-title">
+<h2 class="title-text"><span class="title-prefix">威佐夫博弈</span>奇异局势有如下性质：</h2>
+<a class="edit-icon j-edit-link" data-edit-dl="2" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</div>
+<div class="para" label-module="para">1。任何自然数都包含在一个且仅有一个奇异局势中。</div>
+<div class="para" label-module="para">由于ak是未在前面出现过的最小自然数，所以有a[k] &gt; a[k-1] ，而 bk= a[k] + k &gt; a[k-1] + k &gt; a[k-1] + k - 1 = b[k-1] &gt; a[k-1] 。所以性质1成立。</div>
+<div class="para" label-module="para">2。任意操作都可将奇异局势变为非奇异局势。</div>
+<div class="para" label-module="para">事实上，若只改变奇异局势（ak，bk）的某一个分量，那么另一个分量不可能在其他奇异局势中，所以必然是非奇异局势。如果使（ak，bk）的两个分量同时减少，则由于其差不变，且不可能是其他奇异局势的差，因此也是非奇异局势。</div>
+<div class="para" label-module="para">3。采用适当的方法，可以将非奇异局势变为奇异局势。</div>
+<div class="para" label-module="para">假设面对的局势是（a,b），若 b = a，则同时从两堆中取走 a 个物体，就变为了奇异局势（0，0）；如果a = ak ，b &gt; bk 那么，取走b - bk个物体，即变为奇异局势；如果 a = ak ， b &lt; bk 则同时从两堆中拿走a-a[b-a] 个物体变为奇异局势（ a[b-a], b-a+a[b-a]）；如果a &gt; ak ，b= ak + k 则从第一堆中拿走多余的数量a - ak 即可；如果a &lt; ak ，b= ak + k,分两种情况，第一种，a=aj （j &lt; k）从第二堆里面拿走 b - bj 即可；第二种，a=bj （j &lt; k）从第二堆里面拿走 b - aj 即可。</div><div class="anchor-list">
+<a name="3" class="lemma-anchor para-title" ></a>
+<a name="sub20578694_3" class="lemma-anchor " ></a>
+<a name="详细的证明过程：" class="lemma-anchor " ></a>
+</div><div class="para-title level-2" label-module="para-title">
+<h2 class="title-text"><span class="title-prefix">威佐夫博弈</span>详细的证明过程：</h2>
+<a class="edit-icon j-edit-link" data-edit-dl="3" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</div>
+<div class="anchor-list">
+<a name="3_1" class="lemma-anchor para-title" ></a>
+<a name="sub20578694_3_1" class="lemma-anchor " ></a>
+<a name="方法一" class="lemma-anchor " ></a>
+</div><div class="para-title level-3" label-module="para-title">
+<h3 class="title-text"><span class="title-prefix">威佐夫博弈</span>方法一</h3>
+</div>
+<div class="para" label-module="para">简单分析一下，容易知道两堆石头地位是一样的，我们用余下的石子数(a,b)来表示状态，并画在平面直角坐标系上。</div>
+<div class="para" label-module="para">用之前的定理：<i>有限个结点的无回路有向图有唯一的核</i> 中所述的方法寻找必败态。先标出(0,0)，然后划去所有(0,k),(k,0),(k,k)的格点；然后找y=x上方未被划去的格点，标出(1,2)，然后划去(1,k),(k,2),(1+k,2+k)，同时标出对称点(2,1)，划去(2,k),(1,k),(2+k,1+k)；然后在未被划去的点中在y=x上方再找出(3,5)。。。按照这样的方法做下去，如果只列出a&lt;=b的必败态的话，前面的一些是(0,0),(1,2),(3,5),(4,7),(6,10),…</div>
+<div class="para" label-module="para">接下来就是找规律的过程了，可能很辛苦，但是我写得也不容易，而且我暂时没有看到其他地方有这样的证明过程。</div>
+<div class="para" label-module="para">忽略(0,0)，记第n组必败态为(a[n],b[n])</div>
+<div class="para" label-module="para">命题一：a[n+1]=前n组必败态中未出现过的最小正整数</div>
+<div class="para" label-module="para">[分析]：如果a[n+1]不是未出现的数中最小的，那么可以从a[n+1]的状态走到一个使a[n+1]更小的状态，和我们的寻找方法矛盾。</div>
+<div class="para" label-module="para">命题二：b[n]=a[n]+n</div>
+<div class="para" label-module="para">[分析]：归纳法：若前k个必败态分别为(ak,ak+k)，下证：第k+1个必败态为(ak+1,ak+1+k+1)</div>
+<div class="para" label-module="para">从该第k+1个必败态出发，一共可能走向三类状态，从左边堆拿走一些，从右边堆拿走一些，或者从两堆中拿走一些．下面证明这三类都是胜态．</div>
+<div class="para" label-module="para">情况一：由命题一，任意一个比a[k+1]小的数都在之前的必败态中出现过，一旦把左边堆拿少了，我们只要再拿成那个数相应的必败态即可。</div>
+<div class="para" label-module="para">情况二（从右边堆拿走不太多）：这使得两堆之间的差变小了，比如拿成了(ak+1,ak+1+m)，则可再拿成(am,am+m)；</div>
+<div class="para" label-module="para">情况二（从右边堆拿走很多）：使得右边一堆比左边一堆更少，这时类似于情况一，比如拿成了(ak+1,am)(其中a[m]&lt;a[k+1]) ，则可再拿成(am+m,am)；</div>
+<div class="para" label-module="para">情况三：比如拿成(am,am+k+1)，则可再拿成(am,am+m)．</div>
+<div class="para" label-module="para">综上所述，任何从(ak+1,ak+1+k+1)出发走向的状态都可以走回核中．故原命题成立．</div>
+<div class="para" label-module="para">以上两个命题对于确定(a[n],b[n])是完备的了，给定(0,0)然后按照这两个命题，就可以写出(1,2),(3,5),(4,7),…</div>
+<div class="para" label-module="para">这样我们得到了这个数列的递推式，以下我们把这两个命题当成是(a[n],b[n])的定义。</div>
+<div class="para" label-module="para">先证明两个性质：</div>
+<div class="para" label-module="para">性质一：核中的a[n],b[n]遍历所有正整数。</div>
+<div class="para" label-module="para">[分析]：由命题一，二可得a[n],b[n]是递增的，且由a[n]的定义显然。</div>
+<div class="para" label-module="para">性质二：A={a[n]:n=1,2,3,…},B={b[n]:n=1,2,3,…}，则集合A,B不交。</div>
+<div class="para" label-module="para">[分析]：由核是内固集，显然。</div>
+<div class="para" label-module="para">看到这里大家有没有想到Beatty序列呢，实际上a[n]和b[n]就是一个Beatty序列。</div>
+<div class="para" label-module="para">an=[αn],bn=[βn]，有 an+n=[(α+1)n]=[βn]，解方程 1/(α+1)+1/α=1</div>
+<div class="para" label-module="para">得 α=(sqrt5-1)/2，到此，我们找到了该必败态的通项公式。</div>
+<div class="para" label-module="para">实际上这组Beatty序列还有一些别的性质，比如当一个数是Fibonacci数的时候，另一个数也是Fibonacci数；而且两者的比值也越来越接近黄金比，这些性质在得到通项公式之后不难证明。</div>
+<div class="para" label-module="para">总的来说，这个问题给我们了哪些启示呢？首先用定理所说的方法找核，然后给出核的规律（递推，或是通项）并且证明。</div><div class="anchor-list">
+<a name="3_2" class="lemma-anchor para-title" ></a>
+<a name="sub20578694_3_2" class="lemma-anchor " ></a>
+<a name="方法二" class="lemma-anchor " ></a>
+</div><div class="para-title level-3" label-module="para-title">
+<h3 class="title-text"><span class="title-prefix">威佐夫博弈</span>方法二</h3>
+</div>
+<div class="para" label-module="para"><b>定理 0</b>：一个状态是必败态，当且仅当它的所有后继状态都是必胜态；而一个状态是必胜态，只要它的后继状态有一个以上的必败态即可。</div>
+<div class="para" label-module="para">证明略去。</div>
+<div class="para" label-module="para">容易发现下面的定理：</div>
+<div class="para" label-module="para"><b>定理 1</b>：(a，b) 和 (b, a) 的胜负性是相同的（a &lt;&gt; b）。</div>
+<div class="para" label-module="para">证明：如果 (a, b) 是必胜态，那么将必胜策略中所有的操作，对第一堆的变为第二堆，对第二堆的变为第一堆，就构成 (b, a) 的必胜策略</div>
+<div class="para" label-module="para"><b>定理 2</b>：若 (a, b) 是必败态，则对于所有的 x &lt;&gt; a 和 y &lt;&gt; b，(x, b) 和 (a, y) 是必胜态。</div>
+<div class="para" label-module="para">证明：</div>
+<div class="para" label-module="para">对于 x &gt; a 和 y &gt; b，不管是哪一种情况，总可以从 x 堆或 y 堆中取出一定量的石子使当前状态变为必败态 (a, b)，由定理 1，(x, b) 和 (a, y) 为必胜态。</div>
+<div class="para" label-module="para">对于 x &lt; a 和 y &lt; b，不管是哪一种情况，如果 (x, b) 或 (a, y) 是必败态的话，由上述可得 (a, b) 是必胜态，矛盾。故 (x, b) 和 (a, y) 均为为必胜态。</div>
+<div class="para" label-module="para"><b>定理 3</b>: 若 (a, b) 是必败态，则对于所有的 d &gt; 0，(a + d, b + d) 是必胜态。</div>
+<div class="para" label-module="para">证明：</div>
+<div class="para" label-module="para">与定理 2 类似。</div>
+<div class="para" label-module="para"><b>定理 4</b>：在所有的必败态中，每个数字恰巧出现一次。</div>
+<div class="para" label-module="para">证明：</div>
+<div class="para" label-module="para">有了定理 1，对于对称的状态我们只需要处理其中一个，而两个数不会相同（相同的状态必然是必胜态），于是我们把每个状态中较小的数字放在前面，每行写一个状态，去掉括号并按照升序排列每行的第一个数，就构成了如下的矩阵：</div>
+<div class="para" label-module="para">1 2</div>
+<div class="para" label-module="para">3 5</div>
+<div class="para" label-module="para">4 7</div>
+<div class="para" label-module="para">6 10</div>
+<div class="para" label-module="para">……</div>
+<div class="para" label-module="para">假设数字k在矩阵中出现两次或两次以上，则有(k,a)，(k,b)都为必败态，与定理2矛盾。</div>
+<div class="para" label-module="para">假设数字k为序列中没有出现且值最小的数字，则有 (k,k+i)为必胜态(i&gt;0)，则对任意i，必然存在j(0&lt;j&lt;k)使得(k-j,k+i-j)或(k,k+i-j)或(k-j,k+i)为必败态 (若不如此，则无论如何取石子，对方必胜)，根据假设，显然(k,k+i-j)必胜，因此，对任意i，必有(k-j,k+i-j)或(k-j,k+i)=0, (0&lt;j&lt;k) 必败</div>
+<div class="para" label-module="para">根据鸽巢原理，必然存在3个i的取值(其实是无穷多个，j只有k-1种取值，而i有无数种)记为i<sub>1</sub>, i<sub>2</sub>, i<sub>3</sub>使得j<sub>1</sub>=j<sub>2</sub>=j<sub>3</sub>=m。对这3个i，同样必然存在一对i，不妨为(i<sub>1</sub>,i<sub>2</sub>)，使(k-m,k+i<sub>1</sub>-m)且(k-m,k+i<sub>2</sub>-m)必败或f(k-m,k+i<sub>1</sub>)且f(k-m,k+i<sub>2</sub>)必败。显然与定理2矛盾，因此不存在这样的数k。</div>
+<div class="para" label-module="para">观察这个矩阵，我们又可以得到新的定理：</div>
+<div class="para" label-module="para"><b>定理 5</b>：矩阵中每行第一个数恰巧是前面每一行中没有出现过的最小正整数。</div>
+<div class="para" label-module="para">证明：</div>
+<div class="para" label-module="para">由定理 4，矩阵中每个数字恰巧出现一次，而按照这个矩阵的定义，第二列的数总比同行第一列大，第一列又按照升序排列，所以每一行的第一个数正好为前面每一行中没有出现过的最小正整数。</div>
+<div class="para" label-module="para"><b>定理 6</b>：矩阵第 i 行的第二个数正好为第一个数加上 i</div>
+<div class="para" label-module="para">证明：</div>
+<div class="para" label-module="para">用数学归纳法。</div>
+<div class="para" label-module="para">1) 对于第一行显然成立</div>
+<div class="para" label-module="para">2) 若对于前 i - 1 行均成立，则所有的 (a[p], a[p] + p) (a[p] 为第 p 行第一个数，p &lt; i) 均为必败态，那么考察第 i 行的状态 (a[i], a[i] + delta)。容易看出 delta &gt;= i，因为如果 delta &lt; i，一定可以通过一次操作变为前面出现过的必败态，那么这个状态就是必胜态。下面由 delta &gt;= i，我们来说明 delta = i。</div>
+<div class="para" label-module="para">首先，我们考虑从第一堆中取出 p 个石子，得到状态 (a[i] - p, a[i] - p + delta)，由定理 5，比 a[i] 小的数都在之前出现过，若 a[i] - p 出现在某一行的第一列，由于存在必败态 (a[i] - p, a[i] - p + d) (d &lt; delta)，故 (a[i] - p, a[i] - p + delta) 一定为必胜态（定理 2）；若 a[i] - p 出现在某一行的第二列，由于第一列是单增的，因而其对应的第一列数必小于 a[i] + delta，故而也可推出其状态为必胜态。</div>
+<div class="para" label-module="para">对于从两堆石子中取出相同数目的情况与之类似，容易看出一定为必胜态。</div>
+<div class="para" label-module="para">于是，(a[i], a[i] + delta) 状态的胜负性只与状态 (a[i], a[i] + d) (d &lt; delta) 有关。不难看出，delta = i 时恰为必败态，因为不论从第二堆中取出多少个石子，作为另一堆的第一堆石子并没有在之前出现过，所以得到的一定是一个必胜态，因而 (a[i], a[i] + delta) 为必败态，由定理 2 及定理 4 可得，原命题成立。即矩阵中第 i 行第二列的数等于同行第一列的数加上 i。</div>
+<div class="para" label-module="para">这时，我们所有的问题都转化到了矩阵上，只要能通过合适的方法表示出这个矩阵，我们就可以很好地解决原问题。</div>
+<div class="para" label-module="para">下面的过程可能需要比较高的数学技巧，首先给出我们需要的一个重要定理（[x] 表示 x 的整数部分，{x} 表示 x 的小数部分，即 {x} = x - [x]）：</div>
+<div class="para" label-module="para"><b>定理 7</b>（Betty 定理）：如果存在正无理数 A, B 满足 1/A + 1/B = 1，那么集合 P = { [At], t</div>
+<div class="para" label-module="para">证明：详见Betty定理。</div>
+<div class="para" label-module="para">考虑到 Betty 定理中“恰为 Z</div>
+<div class="para" label-module="para">于是我们得到每一行第二列的数为 [</div>
+<div class="para" label-module="para">我们的目的是要让 Z</div>
+<div class="para" label-module="para">于是应用 Betty 定理，我们得到最终我们需要的定理：</div>
+<div class="para" label-module="para"><b>定理 8</b>：上述矩阵中每一行第一列的数为 [</div>
+<div class="para" label-module="para">证明：由 Betty 定理显然得证。</div>
+<div class="para" label-module="para">设a、b是正<a target=_blank href="/view/1167.htm">无理数</a>且 1/a +1/b =1。记P={ 【na】 | n为任意的<a target=_blank href="/view/464125.htm">正整数</a>}，Q={ 【nb】 | n 为任意的正整数}，则P与Q是Z+的一个划分，即P∩Q为空集且P∪Q为正整数集合Z+。</div>
+<div class="para" label-module="para">证明：因为a、b为正且1/a +1/b=1，则a、b&gt;1，所以对于不同的整数n，【na】各不相同，类似对b有相同的结果。因此任一个整数至多在集合P或Q中出现一次。</div>
+<div class="para" label-module="para">* 现证明P∩Q为空集；(<a target=_blank href="/view/276975.htm">反证法</a>)假设k为P∩Q的一个整数，则存在正整数m、n使得【ma】=【nb】=k。即k &lt; ma、nb&lt;k+1，等价地改写不等式为</div>
+<div class="para" label-module="para">* m/(k+1)&lt; 1/a &lt; m/k及n/(k+1)&lt; 1/b &lt; n/k。相加起来得 (m+n)/(k+1) &lt; 1 &lt; (m+n)/k，即 k &lt; m+n &lt; k+1。这与m、n为整数有<a target=_blank href="/view/23901.htm">矛盾</a>，所以P∩Q为空集。现证明Z+=P∪Q；已知P∪Q是Z+的<a target=_blank href="/view/276935.htm">子集</a>，剩下来只要证明Z+是P∪Q的子集。(反证法)假设Z+\(P∪Q)有一个元素k，则存在正整数m、n使得【ma】&lt; k &lt;【(m+1)a】、【nb】&lt; k &lt;【(n+1)b】。 由此得ma &lt; k ≦【 (m+1)a】-1&lt;(m+1)a -1，类似地有nb &lt; k ≦【 (n+1)b】-1&lt;(n+1)b -1。等价地改写为 m/k &lt; 1/a &lt; (m+1)/(k+1)及n/k &lt; 1/b &lt; (n+1)/(k+1)。两式加起来，得</div>
+<div class="para" label-module="para">(m+n)/k &lt; 1 &lt; (m+n+2)/(k+1)，即m+n &lt; k &lt; k+1 &lt; m+n+2。这与m, n, k皆为正整数矛盾。所以Z+=P∪Q。</div>
+<div class="para" label-module="para"><div class="lemma-picture text-pic layout-right" style="width:220px; float: right;">
+<a class="image-link" nslog-type="9317" 
+			href="/pic/%E5%A8%81%E4%BD%90%E5%A4%AB%E5%8D%9A%E5%BC%88/19858256/0/0b46f21fbe096b635593ca130e338744eaf8acef?fr=lemma&ct=single" target="_blank"
+		title="" style="width:220px;height:127px;">
+<img  class="lazy-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF9fX1AAAA0VQI3QAAAAxJREFUeNpiYAAIMAAAAgABT21Z4QAAAABJRU5ErkJggg==" data-src="http://d.hiphotos.baidu.com/baike/s%3D220/sign=023c26a5257f9e2f74351a0a2f31e962/0b46f21fbe096b635593ca130e338744eaf8acef.jpg"  alt="" style="width:220px;height:127px;"/>
+</a>
+</div>补充一图：</div><div class="anchor-list">
+<a name="4" class="lemma-anchor para-title" ></a>
+<a name="sub20578694_4" class="lemma-anchor " ></a>
+<a name="结论：" class="lemma-anchor " ></a>
+</div><div class="para-title level-2" label-module="para-title">
+<h2 class="title-text"><span class="title-prefix">威佐夫博弈</span>结论：</h2>
+<a class="edit-icon j-edit-link" data-edit-dl="4" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</div>
+<div class="para" label-module="para">两个人如果都采用正确操作，那么面对非奇异局势，先拿者必胜；反之，则后拿者取胜。</div>
+<div class="para" label-module="para">那么任给一个局势（a，b），怎样判断它是不是奇异局势呢？我们有如下公式：</div>
+<div class="para" label-module="para">ak =[k（1+√5）/2]，bk= ak + k （k=0，1，2，...n 方括号表示取整函数)</div>
+<div class="para" label-module="para">奇妙的是其中出现了黄金分割数（1+√5）/2 = 1.618...因此，由ak，bk组成的矩形近似为黄金矩形，由于2/（1+√5）=（√5-1）/2，可以先求出j=[a（√5-1）/2]，若a=[j（1+√5）/2]，那么a = aj，bj = aj + j，若不等于，那么a = aj+1，b = aj + j + 1，若都不是，那么就不是奇异局势。然后再按照上述法则进行，一定会遇到奇异局势。</div>
+<div id="open-tag">
+<div class="open-tag-title">词条标签：</div>
+<dd id="open-tag-item">
+<span class="taglist">
+理学
+</span>
+，<span class="taglist">
+数学
+</span>
+，<span class="taglist">
+学科
+</span>
+</dd>
+<div class="open-tag-collapse" id="open-tag-collapse"></div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="side-content">
+<div class="lemmaWgt-promotion-vbaike">
+<div class="promotion_title">V百科<a href="/vbaike#gallary" target="_blank">往期回顾</a></div>
+<div class="promotion_viewport">
+<dl>
+</dl>
+<div class="promotion_viewport_pager"></div>
+</div>
+</div><div class="lemmaWgt-promotion-rightPreciseAd" data-lemmaId="19858256" data-lemmaTitle="威佐夫博弈"></div><div class="lemmaWgt-sideRecommend">
+<a name="zhixinWrap" class="qnAnchor"></a>
+<div class="zhixin-box" id="zhixinWrap" data-source="" data-newLemmaId="19858256">
+</div>
+<form id="zhixinErrorForm" class="hidden" action="http://f3.baidu.com/index.php/feedback/zx/baikeJC" target="zhixinSubErr" method="post">
+<input class="js-url" name="fb_html_url" type="hidden" />
+<input class="js-query" name="fb_query" type="hidden" />
+<input class="js-title" name="fb_card_title" type="hidden" />
+<input class="js-content" name="fb_content" type="hidden" />
+<input class="js-souceId" name="fb_source_id" type="hidden" />
+</form>
+<iframe id="zhixinSubErr" name="zhixinSubErr" style="display:none" frameborder="0"></iframe>
+</div><div class="lemmaWgt-promotion-slide">
+<div class="promotion_viewport">
+<dl>
+</dl>
+<div class="promotion_viewport_pager"></div>
+</div>
+</div><div class="lemmaWgt-promotion-rightBigAd">
+</div><dl class="side-box lemma-statistics">
+<dt class="title">词条统计</dt>
+<dd class="description">
+<ul>
+<li>浏览次数：<span id="j-lemmaStatistics-pv"></span>次</li>
+<li>编辑次数：1次<a href="/historylist/%E5%A8%81%E4%BD%90%E5%A4%AB%E5%8D%9A%E5%BC%88/19858256" class="nslog:1021" target="_blank">历史版本</a></li>
+<li>最近更新：<span class="j-modified-time" style="display:none">2016-07-27</span></li>
+<li>创建者：<a class="show-userCard" data-uid="11995734" title="查看此用户资料" target="_blank" href="http://www.baidu.com/p/yanlis" nslog-type="1022">yanlis</a></li>
+</ul>
+</dd>
+</dl>
+<div class="enterprise-creditModule" id="enterprise_creditModule">
+<div class="credit-title"><i></i>企业信用信息</div>
+</div>
+<div class="side-catalog" style="visibility:hidden">
+<div class="side-bar">
+<em class="circle start"></em>
+<em class="circle end"></em>
+</div>
+<div class="catalog-scroller">
+<dl class="catalog-list">
+<dt class="catalog-title level1">
+<em class="pointer"></em>
+<a href="#1" class="title-link">
+<span class="text">
+<span class="title-index">1</span>
+<span class="title-link" nslog-type="1026">具体内容：</span>
+</span>
+</a>
+</dt>
+<dt class="catalog-title level1">
+<em class="pointer"></em>
+<a href="#2" class="title-link">
+<span class="text">
+<span class="title-index">2</span>
+<span class="title-link" nslog-type="1026">奇异局势有如下性质：</span>
+</span>
+</a>
+</dt>
+<dt class="catalog-title level1">
+<em class="pointer"></em>
+<a href="#3" class="title-link">
+<span class="text">
+<span class="title-index">3</span>
+<span class="title-link" nslog-type="1026">详细的证明过程：</span>
+</span>
+</a>
+</dt>
+<dd class="catalog-title level2">
+<a href="#3_1" class="title-link">
+<span class="text">
+<span class="title-index">3.1</span>
+<span class="title-link" nslog-type="1026">方法一</span>
+</span>
+</a>
+</dd>
+<dd class="catalog-title level2">
+<a href="#3_2" class="title-link">
+<span class="text">
+<span class="title-index">3.2</span>
+<span class="title-link" nslog-type="1026">方法二</span>
+</span>
+</a>
+</dd>
+<dt class="catalog-title level1">
+<em class="pointer"></em>
+<a href="#4" class="title-link">
+<span class="text">
+<span class="title-index">4</span>
+<span class="title-link" nslog-type="1026">结论：</span>
+</span>
+</a>
+</dt>
+<a class="arrow" href="javascript:void(0);"></a>
+</dl>
+</div>
+<div class="right-wrap">
+<a class="go-up disable" href="javascript:void(0);"></a>
+<a class="go-down" href="javascript:void(0);"></a>
+</div>
+<div class="bottom-wrap">
+<a class="toggle-button" href="javascript:void(0);"></a>
+<a class="gotop-button" href="javascript:void(0);"></a>
+</div>
+</div>
+<div class="unionAd_fromPs side-box" id="unionAd_fromPs">
+<script type="BAIDU_HH">
+    {
+        type : 'pageembed',
+        di   : 'u2140330',
+        rsi0 : 270,
+        rsi1 : 175
+    }
+    </script>
+</div>
+<div id="side_box_fengchao" class="fengchao side-box" nslog="area" nslog-type="10000902">
+</div>
+<div id="side_box_unionAd" class="unionAd side-box">
+<p>推广链接</p>
+<div class="union-content"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="after-content">
+<div class="fc-guess-like" id="fc_guess_like">
+<h6>猜你喜欢</h6>
+<div>
+<ul class="cmn-clearfix">
+</ul>
+</div>
+</div>
+<div class="fc-guess-like new" id="fc_guess_like_new">
+<span class="logo-du">
+<em class="cmn-icon cmn-icons cmn-icons_logo-du"></em>
+</span>
+<h6>猜你喜欢</h6>
+<ul class="cmn-clearfix">
+</ul>
+</div>
+<div class="bottom-promotion" id="bottom-promotion">
+<div id="BOTTOM_PRO_AD"></div>
+</div></div>
+</div>
+
+<div class="wgt-footer-main">
+<div class="content">
+<dl class="fresh">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-fresh"></em>新手上路</dt>
+<dd>
+<div><a target="_blank" href="/usercenter/tasks#guide">成长任务</a></div>
+<div><a target="_blank" href="/help#main01">编辑入门</a></div>
+<div><a target="_blank" href="/help#main06">编辑规则</a></div>
+<div><a target="_blank" href="/help#main05">百科术语</a></div>
+</dd>
+</dl>
+<dl class="question">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-question"></em>我有疑问</dt>
+<dd>
+<div><a target="_blank" href="/wikiui/doubt?lemmaId=19858256&fr=lemma"
+            nslog-type="10070001">我要质疑</a></div>
+<div><a target="_blank" href="http://ikefu.baidu.com/baidubaike/chat.html" nslog-type="10000003">我要提问</a></div>
+<div><a target="_blank" href="http://tieba.baidu.com/f?ie=utf-8&fr=bks0000&kw=%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91">参加讨论</a></div>
+<div><a target="_blank" href="/feedback">意见反馈</a></div>
+</dd>
+</dl>
+<dl class="suggestion">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-suggestion"></em>投诉建议</dt>
+<dd>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#1">举报不良信息</a></div>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#2">未通过词条申诉</a></div>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#4">投诉侵权信息</a></div>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#3">封禁查询与解封</a></div>
+</dd>
+</dl>
+</div>
+<div class="copyright">©2016Baidu&nbsp;<a href="http://www.baidu.com/duty/" target="_blank">使用百度前必读</a>&nbsp;|&nbsp;<a href="http://help.baidu.com/question?prod_en=baike&class=159&id=1047" target="_blank">百科协议</a>&nbsp;|&nbsp;<a href="/operation/cooperation" target="_blank">百度百科合作平台</a></div>
+</div>
+
+<div class="lemmaWgt-searchHeader">
+<div class="layout">
+<div class="logo-container">
+<a class="logo cmn-inline-block" title="到百科首页" href="/">
+<span class="cmn-baike-logo">
+<em class="cmn-icon cmn-icons cmn-icons_logo-bai"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-du"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-baike"></em>
+</span>
+</a>
+</div>
+<div class="search">
+<div class="form">
+<form id="searchForm" action="/search/word" method="GET" target="_self">
+<input id="query" name="word" type="text" autocomplete="off" autocorrect="off" value="威佐夫博奕" /><a id="search" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_search"></em></a>
+</form>
+<ul id="suggestion" class="suggestion">
+<div></div>
+<li class="extra">
+<span id="close">关闭</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="tool-buttons">
+<a class="toolButtons-edit button j-edit-link" href="javascript:;" nslog-type="10010001"></a>
+<a class="toolButtons-collect button" href="javascript:;" nslog-type="10010002"></a>
+<a class="toolButtons-vote button" href="javascript:;" nslog-type="10010003"></a>
+</div>
+<div class="user-info">
+<a class="user-link unlogin" href="javascript:;" target="_blank">登录</a>
+</div>
+</div></div>
+<div class="new-bdsharebuttonbox new-side-share" id="side-share">
+<span class="title">分享</span>
+<div class="side-border">
+<div class="triangle"></div>
+<a class="bds_qzone"  href="javascript:void(0);" nslog-type="10060101">
+<em class="cmn-icon cmn-icons cmn-icons_logo-qzone"></em>
+</a>
+<a class="bds_tsina" href="javascript:void(0);" nslog-type="10060301">
+<em class="cmn-icon cmn-icons cmn-icons_logo-sina-weibo"></em>
+</a>
+<a class="bds_wechat"  href="javascript:void(0);" nslog-type="10060001">
+<em class="cmn-icon cmn-icons cmn-icons_logo-wechat"></em>
+</a>
+<a class="bds_tqq"  href="javascript:void(0);" nslog-type="10060201">
+<em class="cmn-icon cmn-icons cmn-icons_logo-qq"></em>
+</a>
+</div>
+</div>
+<div class="qrcode-wrapper" id="layer" style="display: none">
+<div class="bd_weixin_popup_header">
+<em class="cmn-icon cmn-icons cmn-icons_close"></em>
+<span>分享到微信朋友圈</span>
+</div>
+<div id="wechat-qrcode-img"></div>
+<div class="bd_weixin_popup_footer">打开微信“扫一扫”即可将网页分享至朋友圈</div>
+</div>
+<script src="http://qzonestyle.gtimg.cn/qzone/app/qzlike/qzopensl.js#jsdate=20111201" charset="utf-8"></script>
+
+</body><script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/js/mod_e56bbba.js"></script>
+<script type="text/javascript">require.resourceMap({"res":{"wiki-lemma:widget/lemma_content/mainContent/lemmaRelation/lemmaInsert.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/lemmaInsert_17d225d.js","pkg":"wiki-lemma:p5","deps":["wiki-common:widget/component/nslog/nslog.js"]},"wiki-lemma:widget/lemma_content/mainContent/lemmaRelation/tangram.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/tangram_28a97a6.js","pkg":"wiki-lemma:p5"},"wiki-lemma:widget/feature/enterprise/creditModule/creditModule.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/feature/enterprise/creditModule/creditModule_096df98.js","deps":["wiki-common:widget/lib/jquery/jquery.js","wiki-common:widget/lib/jsmart/jsmart.js","wiki-common:widget/component/nslog/nslog.js"]}},"pkg":{"wiki-lemma:p5":{"url":"http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma-module-lemmaRelation_775a749.js"}}});</script><script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/lib/jquery/jquery_1.11.1_2201cf8.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/lib/jquery/jquery.mousewheel_d2bbdbc.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/lib/jquery/jquery_c7b1275.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/component/userLogin/userLogin_41417f1.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/component/userMsg/userMsg_928fd8c.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/lib/jsmart/PHPJS_3347e0a.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/lib/jsmart/jsmart_a8c96f2.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/util/browser_d54a084.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/util/safeCall_bcd4430.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/ui/bubble/bubble_1451044.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/component/userbar/userbar_c22054f.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/component/searchbar/searchbar_83936b0.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/util/cookie_2c9e1a8.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/util/tween_c96638b.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/util/animation_96cdc43.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/ui/overlay/overlay_417e6de.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/util/checkCSS_010f6ad.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/ui/dialog/dialog_7e68287.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/component/nslog/nslog_f060910.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/lib/swfObject/swfObject_221d2fe.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/component/unameFiller/unameFiller_0bbd803.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/component/userCard/userCard_62d9343.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/util/number_c1ddd8a.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/util/timeFormater_3cafcfb.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/util/string_83f115f.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/component/testElem/testElem_5c30a99.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/ui/pager/pagerBase_a0bf5ba.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/ui/pager/horPager/horPager_4d1e0e5.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/ui/carousel/aniTypes/aniType_slide_9a6aa8a.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/ui/carousel/carousel_5aa4c55.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma_2023f82.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/zhixin_d2befc8.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-lemma/widget/feature/enterprise/creditModule/creditModule_096df98.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/component/cmsModuleLoader/cmsModuleLoader_d979ff2.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/widget/component/psLink/psLink_3517b83.js"></script>
+<script type="text/javascript">!function(){  var $ = require('wiki-common:widget/lib/jquery/jquery.js'),
+    userbar = require('wiki-common:widget/component/userbar/userbar.js');
+    
+  $(function() {
+    userbar.buildUserbar($('.wgt-userbar'), null);
+  });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js'),
+      initSearchbar = require('wiki-common:widget/component/searchbar/searchbar.js');  
+    initSearchbar($('.wgt-searchbar-main'));
+  }();
+!function(){  var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+
+  var timer = '';
+
+  $('.wgt-navbar').on('mouseenter', 'dl', function() {
+  clearTimeout(timer);
+  timer = setTimeout(function() {
+  $('.wgt-navbar').addClass('wgt-navbar-hover');
+}, 300);
+}).on('mouseleave', function() {
+clearTimeout(timer);
+$('.wgt-navbar').removeClass('wgt-navbar-hover');
+}).on('click', 'a', function() {
+clearTimeout(timer);
+$('.wgt-navbar').removeClass('wgt-navbar-hover');
+});
+}();
+!function(){            var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+            var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+            // 展现策略
+            rightCheck.editView('19858256', function(res) {
+                if (!res.errno) {
+                    if (res.data.edit) {
+                        $('.lemmaWgt-lemmaTitle .add-subLemma').css('display', 'inline-block');
+                        $('.top-tool .add-sub-icon').css('display', 'inline-block');
+                    }
+                } else {
+                    if ('1') {
+                        $('.lemmaWgt-lemmaTitle .add-subLemma').css('display', 'inline-block');
+                        $('.top-tool .add-sub-icon').css('display', 'inline-block');
+                    }
+                }
+            }); 
+
+            require('wiki-lemma:widget/basicElement/addSub/addSub.js')({
+                lemmaId: '19858256',
+                lemmaTitle: '威佐夫博弈',
+                lemmaDesc: '',
+                versionId: '111254862',
+                subLemmaId: '20578694'
+            });
+        }();
+!function(){        var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+        var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+        // 展现策略
+        rightCheck.editView('19858256', function(res) {
+            if (!res.errno) {
+                if (res.data.divide) {
+                    $('.top-tool .split-icon').css('display', 'block');
+                }
+            }
+        });
+    }();
+!function(){    var nslog = require('wiki-common:widget/component/nslog/nslog.js');
+	require.async("wiki-lemma:widget/basicElement/collect/collect.js",function(collect){
+		collect({
+            newLemmaId:"19858256",
+			lemmaId:"19119440",
+			subLemmaId:"20578694"
+		});
+	});
+}();
+!function(){    var nslog = require('wiki-common:widget/component/nslog/nslog.js');
+	require.async("wiki-lemma:widget/basicElement/vote/vote.js",function(vote){
+		vote({
+			lemmaId:"19119440",
+            subLemmaId:"20578694",
+            newLemmaId:"19858256"
+		});
+	});
+}();
+!function(){    var nslog = require('wiki-common:widget/component/nslog/nslog.js');
+	!!window.BKShare && window.BKShare.regist({
+		"tag" : "top-share",
+		"bdSize" : 32,
+		"bdMini":1
+	});
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('19858256', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.lemmaWgt-lemmaTitle .edit-lemma').css('display', 'inline-block');
+            } else {
+                $('.lemmaWgt-lemmaTitle .lock-lemma').show();
+            }
+        } else {
+            if ('1') {
+                $('.lemmaWgt-lemmaTitle .edit-lemma').css('display', 'inline-block');
+            } else {
+                $('.lemmaWgt-lemmaTitle .lock-lemma').show();
+            }
+        }
+    });
+}();
+!function(){	require('wiki-lemma:widget/lemma_content/mainContent/basicInfo/basicInfo.js')();
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('19858256', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('19858256', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('19858256', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('19858256', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('19858256', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('19858256', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){        require.async("wiki-common:widget/lib/jquery/jquery.js",function($){
+            function openTagToggle(node) {
+                if ($(node).hasClass("collapse")) {
+                    $(node).removeClass("collapse");
+                    $("#open-tag").css("height", '22px');
+                } else {
+                    $(node).addClass("collapse");
+                    $("#open-tag").css("height", $("#open-tag-item").css("height"));
+                }
+            }
+            if (parseInt($("#open-tag-item").css("height")) <= 30) {
+                $('#open-tag-collapse').hide();
+            }
+            $("#open-tag-collapse").on("click", function () {
+                openTagToggle($("#open-tag")[0]);
+            });
+        });
+    }();
+!function(){        require('wiki-lemma:widget/lemma_content/configModule/zhixin/zhixin.js')(
+            19858256,
+            '威佐夫博弈'
+        );
+    }();
+!function(){    require.async("wiki-lemma:widget/lemma_content/mainContent/lemmaStatistics/lemmaStatistics.js",function(init){
+        init({
+            newLemmaIdEnc:"adba76104415ba08361bed21"
+        });
+    });
+}();
+!function(){    require.async('wiki-lemma:widget/feature/enterprise/creditModule/creditModule.js', function (app) {
+        app.init({
+            lemmaTitle: '威佐夫博弈',
+            adManager: null
+        });
+    });
+}();
+!function(){	require.async("wiki-lemma:widget/lemma_content/mainContent/sideCatalog/sideCatalog.js",function(SideCatalog){
+		new SideCatalog();
+	});
+}();
+!function(){        require.async(['wiki-lemma:widget/promotion/unionAdFromPs/unionAdFromPs.js'], function (init) {
+            init({
+                adManager: null
+            });
+        });
+    }();
+!function(){    require.async(["wiki-lemma:widget/promotion/fengchao/fengchao.js", "wiki-lemma:widget/promotion/unionAd/unionAd.js"], function (init, unionAd) {
+        init({
+            newLemmaId: "19858256",
+            lemmaTitle: "威佐夫博弈",
+            encodeLemmaTitle: "%CD%FE%D7%F4%B7%F2%B2%A9%DE%C4",
+            adManager: null
+        }, {
+            errFn: unionAd,
+            dom: $('#side_box_unionAd')
+        });
+    });
+}();
+!function(){    require.async('wiki-lemma:widget/promotion/guessLike/guessLike.js', function (app) {
+        app.init({
+            lemmaTitle: '威佐夫博弈',
+            adManager: null
+        });
+    });
+}();
+!function(){        require.async('wiki-lemma:widget/promotion/bottomAd/bottomAd.js', function (init) {
+            init({
+                sId: 'BOTTOM_PRO_AD',
+                adManager: null
+            });
+        });
+    }();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var Dialog = require("wiki-common:widget/ui/dialog/dialog.js");
+    var userLogin = require('wiki-common:widget/component/userLogin/userLogin.js');
+    var unameFiller = require('wiki-common:widget/component/unameFiller/unameFiller.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+            var isEnterprise = false;
+        var enterpriseOwnerUserId = 0;
+    
+    var userId = 0;
+    var editUrl = '/edit/' + encodeURIComponent('威佐夫博弈') + '/' + '19858256';
+    var pgcUrl = '/enterprise/editpgc?lemmaId=19858256';
+
+    userLogin.regist({
+        onLogin: function(user) {
+            userId = user ? user.uid : 0;
+        }
+    });
+
+    function gotoEdit(url, isMidNight) {
+        if (isMidNight) {
+            Dialog.alert({
+                title: '编辑提示',
+                subMsg: '晚23:00至次日8:00，因审核系统例行维护，您提交的版本可能需要较长时间才能通过，望您谅解。',
+                onConfirm: function() {
+                    window.location.href = url;
+                }
+            });
+        } else {
+            window.location.href = url;
+        }    
+    }
+
+    function showChoseEditDialog(pgcCallback, ugcCallback) {
+        new Dialog({
+            title: '编辑提示',
+            subMsg: '<p>您已开通企业百科服务，推荐您直接编辑“官方资料”，官方资料仅限企业百科绑定的百科账号修改，其他用户账号不可修改。</p><p>如果您想修改其他网友编辑的普通词条内容，请注意遵守百科百科编辑规则。<p>',
+            btns: [{
+            key: 'pgc',
+            text: '编辑官方资料'
+            }, {
+            style: 'white',
+            text: '修改普通词条',
+            key: 'ugc'
+            }],
+            onBtnClick: function(btnKey){
+                if (btnKey === 'pgc') {
+                    pgcCallback && pgcCallback();
+                } else if (btnKey === 'ugc') {
+                    ugcCallback && ugcCallback();
+                }
+            }
+        }).show();
+    }
+
+    function checkUserLegal(res) {
+        var legal = false;
+        switch (res.errno) {
+            case 100001:
+                userLogin.showLoginPop();
+                break;
+            case 100006:
+                unameFiller.show();
+                break;
+            default:
+                legal = true;
+        }
+        return true;
+    }
+
+    function checkUgc(res, url) {
+        if (res.errno) {
+            switch (res.errno) {
+                case 100005:
+                    alert('对不起，您目前被封禁');
+                    break;
+                case 110001:
+                    alert('对不起，该词条被锁定');
+                    break;
+                case 110007:
+                    alert('对不起，消歧页无法编辑');
+                    break;
+                case 110005:
+                    Dialog.alert({
+                    title: '编辑提示',
+                    mainMsg: '对不起，您暂时没有权限编辑该词条。',
+                    subMsg: '<p>您好，该词条内容已较丰富，现仅对百科等级达到<b>四级</b>且通过率达到<b>85%</b>的科友开放编辑。</p><p>当您通过努力达到以上要求，就可以参与编辑该词条了。</p><p><img src="http://img.baidu.com/img/baike/usercenter/growuptask/star.gif" class="star" />参加<a target="_blank" href="/usercenter#guide">成长任务</a>，更快掌握百科编辑技巧，加速升级！</p>'
+                    });
+                    break;
+                case 110008:
+                    Dialog.alert({
+                    title: '编辑提示',
+                    mainMsg: '对不起，您暂时没有权限编辑该词条。',
+                    subMsg: '<p>您好，该词条内容已较丰富，现仅对百科等级达到<b>六级</b>且通过率达到<b>85%</b>的科友开放编辑。</p><p>当您通过努力达到以上要求，就可以参与编辑该词条了。</p><p><img src="http://img.baidu.com/img/baike/usercenter/growuptask/star.gif" class="star" />参加<a target="_blank" href="/usercenter#guide">成长任务</a>，更快掌握百科编辑技巧，加速升级！</p>'
+                    });
+                    break;
+                case 470001:
+                    alert('系统错误，请刷新重试');
+                    break;
+            }
+        } else {
+            if (!res.data.right.noAudit) {
+                Dialog.alert({
+                    title: '编辑提示',
+                    subMsg: '很抱歉，该词条有其他用户编辑的版本正在提交，您暂时无法编辑。<br/>百科建议您晚些时候再编辑该词条，或者尝试编辑其他的词条。'
+                });
+                return;
+            }
+            gotoEdit(url, res.data.notice.isMidNight);
+        }
+    }
+
+    $(document.body).on('click', '.j-edit-link', function() {
+        var dl = $(this).attr('data-edit-dl');
+        if (dl) {
+            var url = editUrl + '?dl=' + dl;
+        } else {
+            var url = editUrl;
+        }
+
+        rightCheck.preeditCheck('19858256', '威佐夫博弈', '威佐夫博弈', '111254862', function(res) {
+            if (!checkUserLegal(res)) {
+                return;
+            }
+            if (isEnterprise && enterpriseOwnerUserId === userId) {
+                showChoseEditDialog(function() {
+                    location.href = pgcUrl;
+                }, function() {
+                    checkUgc(res, url);
+                });
+            } else {
+                checkUgc(res, url);
+            }
+        });
+    });
+}();
+!function(){    require.async("wiki-lemma:widget/tools/searchHeader/toolButtons/toolButtons.js",function(init){
+        init({
+            lemmaId:"19119440",
+            subLemmaId:"20578694",
+            newLemmaId:"19858256"
+        });
+    });
+}();
+!function(){    require('wiki-lemma:widget/tools/searchHeader/toolButtons/userInfo.js')();
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js'),
+      animation = require('wiki-common:widget/util/animation.js'),
+      initSearchbar = require('wiki-common:widget/component/searchbar/searchbar.js');
+
+    var isFadeIn = false,
+        isFadeOut = false;
+
+    var fadeInAni, fadeOutAni;
+
+    $(window).on('scroll', function(e) {
+        var scrollTop = $(this).scrollTop();
+
+        if (scrollTop > 200 && !isFadeIn && $('.lemmaWgt-searchHeader').css('display') == 'none') {
+            fadeOutAni && fadeOutAni.stop();
+            fadeInAni = animation({
+                duration: 200,
+                easing: 'linear',
+                onStart: function() {
+                    isFadeOut = false;
+                    isFadeIn = true;
+                    $('.lemmaWgt-searchHeader').css('display', 'block');
+                },
+                onStep: function(progress) {
+                    $('.lemmaWgt-searchHeader').css('opacity', progress)
+                },
+                onComplete: function(progress) {
+                    isFadeIn = false;
+                }
+            });
+        } else if (scrollTop <= 200 && !isFadeOut && $('.lemmaWgt-searchHeader').css('display') == 'block') {
+            fadeInAni && fadeInAni.stop();
+            fadeOutAni = animation({
+                duration: 300,
+                easing: 'linear',
+                onStart: function() {
+                    $('.lemmaWgt-searchHeader #suggestion').hide();
+                    isFadeIn = false;
+                    isFadeOut = true;
+                },
+                onStep: function(progress) {
+                    $('.lemmaWgt-searchHeader').css('opacity', 1 - progress);
+                },
+                onComplete: function(progress) {
+                    isFadeOut = false;
+                    $('.lemmaWgt-searchHeader').css('display', 'none');
+                }
+            });
+        }
+    });
+
+    initSearchbar($('.lemmaWgt-searchHeader'));
+}();
+!function(){    require.async("wiki-lemma:widget/tools/newSideShare/taskSideShare.js",function(taskShare){
+        taskShare.init({
+            title: '威佐夫博弈',
+            desc: "\u5a01\u4f50\u592b\u535a\u5f08\uff08Wythoff Game\uff09\uff1a\u6709\u4e24\u5806\u5404\u82e5\u5e72\u4e2a\u7269\u54c1\uff0c\u4e24\u4e2a\u4eba\u8f6e\u6d41\u4ece\u67d0\u4e00\u5806\u6216\u540c\u65f6\u4ece\u4e24\u5806\u4e2d\u53d6\u540c\u6837\u591a\u7684\u7269\u54c1\uff0c\u89c4\u5b9a\u6bcf\u6b21\u81f3\u5c11\u53d6\u4e00\u4e2a\uff0c\u591a\u8005\u4e0d\u9650\uff0c\u6700\u540e\u53d6\u5149\u8005\u5f97\u80dc\u3002",
+            pic: '',
+            url: '',
+            qqPic: ''
+        });
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var nslog = require("wiki-common:widget/component/nslog/nslog.js");
+    var testElem = require('wiki-common:widget/component/testElem/testElem.js');
+    var cmsModuleLoader = require('wiki-common:widget/component/cmsModuleLoader/cmsModuleLoader.js');
+
+    function requireAsync() {
+        require.async('wiki-lemma:widget/tools/announcement/announcement.js');
+    }
+
+    cmsModuleLoader('/cms/global/lemma_config.json', [{
+        name: 'announcement',
+        script: 'wiki-lemma:widget/tools/announcement/announcement.js'
+    }]);
+
+    require.async("wiki-lemma:widget/tools/lazyLoad/lazyLoad.js", function(LazyLoad) {
+        new LazyLoad();
+    });
+
+    require.async(['wiki-common:widget/component/nslog/nslog.js', 'wiki-common:widget/lib/jquery/jquery.js'], function(nslog, $) {
+        nslog().setGlobal({
+            lemmaId: "19119440",
+            newLemmaId: "19858256",
+            subLemmaId: "20578694",
+            lemmaTitle: "威佐夫博弈"
+        });
+
+        // 词条页 pv
+        nslog(9322);
+
+        // 链接点击 pv
+        var lemmaPageRegExp = new RegExp(/\/subview\/\d+|\/view\/\d+|\/item\//i);
+        $('body').on('mousedown', 'a', function() {
+            var href = $(this).attr('href');
+            if (href && href.indexOf('/') >= 0 && href.indexOf('#') !== 0) {
+                // 链接点击 pv
+                nslog(10000001);
+                if (lemmaPageRegExp.test(href)) {
+                    // 词条页链接点击 pv
+                    nslog(10000002);
+                }
+            }
+        });
+
+        /****** 词条页站内流转需求统计 start ******/
+        (function () {
+            // 各种统计配置
+            var circulationLinkCfg = {
+                innerLink: [ // 内链
+                    '.para',
+                    '.lemmaWgt-baseInfo-simple-largeMovie',
+                    '.lemmaWgt-baseInfo-simple-largeStar',
+                    '.basic-info .basicInfo-block',
+                    '.lemma-summary',
+                    '.lemmaWgt-lemmaSummary',
+                    '.view-tip-panel',
+                    '.horizontal-module',
+                    '.lemmaWgt-roleIntroduction',
+                    '.dramaSeries .dramaSerialList',
+                    '.module-music',
+                    '.table-view',
+                    '[log-set-param="table_view"]',
+                    '.list-module',
+                    '.cell-module',
+                    '.baseBox .dl-baseinfo', // 配置后台字段
+                    '.pvBtn-box .leadPVBtnWrapper',
+                    '.drama-actor',
+                    '#staffList',
+                    '.starMovieAndTvplay',
+                    '.main_tab:not(.main_tab-defaultTab)' // 除去词条tab外的tab
+                ],
+                relationTable: '.rs-container-foot', // 关系表
+                peopleRelation: '.star-info-block.relations, .lemmaWgt-focusAndRelation', // 人物关系（明星+普通）
+                moduleActors: '.featureBaseInfo .actors, .lemmaWgt-majorActors', // 主要演员、嘉宾、主持人
+                moduleWorks: '.featureBaseInfo .works, .large-feature .works', // 代表作品
+                moduleQuarterly: '.featureBaseInfo .po_quarterly, .mian_quarterly', // 分季介绍
+                rankStar: '.rank-list.stars-rank', // 明星榜
+                rankDrama: '.drama-rank-list', // 电视剧榜
+                specialTopic: '.special-topic', // 专题模块
+                modDetailTable: '#modDetailTable', // 关系表出图
+                chuizhitu: '.chuizhitu', // 垂直化模块
+                polysemantList: '.polysemantList-wrapper' // 义项切换
+            };
+            /****** 连接统计 ******/
+            function clickNslogFn() {
+                for (var k in circulationLinkCfg) {
+                    if (k === 'innerLink') {
+                        // 词条内链到词条页
+                        var tempArr = circulationLinkCfg[k];
+                        for (var i = 0, l = tempArr.length; i < l; i++) {
+                            tempArr[i] += ' a';
+                        }
+                        var sSelector = tempArr.join(', ');
+
+                        $('body').on('mousedown', sSelector, {key: k},function(e) {
+                            var key = e.data.key;
+                            var href = $(this).attr('href');
+                            var tar = $(this).attr('target') || '';
+                            if (href && href.indexOf('/') >= 0 && href.indexOf('#') !== 0
+                            && tar === '_blank' && lemmaPageRegExp.test(href)) {
+                                // 词条页普通内链点击 pv
+                                nslog(10000004, null ,{division: key});
+                            }
+                        });
+                    } else {
+                        // 模块到词条页链接
+                        $(circulationLinkCfg[k]).on('mousedown', 'a', {key: k}, function (e) {
+                            var key = e.data.key;
+                            var href = $(this).attr('href');
+                            if (href && href.indexOf('#') !== 0 && lemmaPageRegExp.test(href)) {
+                                // 词条页配置模块链接点击 pv
+                                nslog(10000004, null, {division: key});
+                            }
+                        });
+                    }
+                }
+            }
+            // 发起统计请求
+            clickNslogFn();
+
+            /****** 各模块展现量pv ******/
+            function checkModuleIsShow() {
+                var result = [];
+                for (var k in circulationLinkCfg) {
+                    if (k !== 'innerLink' && k !== 'relationTable') {
+                        !!$(circulationLinkCfg[k]).html() && result.push(k);
+                    }
+                }
+                if (result.length > 0) {
+                    nslog(10000005, null, {showModules: result.join(',')});
+                }
+            }
+            checkModuleIsShow();
+
+        })();
+        /****** 词条页站内流转需求统计 end ******/
+
+    });
+
+    // 广告接入 wikiad 统一加载
+    // log 词条页广告被拦截情况（此处 log 请求行为）
+    nslog(70000101, window.location.href, {
+        api: 'lemma-ad',
+        action: 'request'
+    });
+    $.ajax({
+        type: 'GET',
+        url: '/api/wikiad/getsquirrels',
+        data: {
+            lemmaId: 19858256
+        },
+        cache: false,
+        dataType: 'JSON',
+        success: function (res) {
+            // log 词条页广告被拦截情况（此处 log 请求成功）
+            nslog(70000101, window.location.href, {
+                api: 'lemma-ad',
+                action: 'success'
+            });
+
+            if (!res.errno) {
+                if (res.data[5]) {
+                    require.async(['wiki-lemma:widget/promotion/rightPreciseAd/rightPreciseAd.js'], function(rightPreciseAd) {
+                        rightPreciseAd(res.data[5]);
+                        nslog(10002201, location.href, {
+                            adId: res.data[5][0].adId,
+                            adTitle: res.data[5][0].name,
+                            adPos: 5
+                        });
+                    });
+                } else if (res.data[1]) {
+                    require.async(['wiki-lemma:widget/promotion/vbaike/vbaike.js'], function(vbaike) {
+                        vbaike(res.data[1]);
+                        for(var i in res.data[1]) {
+                            nslog(10002201, location.href, {
+                                adId: res.data[1][i].adId,
+                                adTitle: res.data[1][i].name,
+                                adPos: 1
+                            });
+                        }
+                    });
+                }
+                if (res.data[9]) {
+                    require.async(['wiki-lemma:widget/promotion/rightBigAd/rightBigAd.js'], function(rightBigAd) {
+                        rightBigAd(res.data[9]);
+                            nslog(10002201, location.href, {
+                                adId: res.data[9][0].adId,
+                                adTitle: res.data[9][0].name,
+                                adPos: 9
+                            });
+                    });
+                } else if(res.data[2]) {
+                    require.async(['wiki-lemma:widget/promotion/slide/slide.js'], function(slide) {
+                        slide(res.data[2]);
+                        for(var i in res.data[2]) {
+                            nslog(10002201, location.href, {
+                                adId: res.data[2][i].adId,
+                                adTitle: res.data[2][i].name,
+                                adPos: 2
+                            });
+                        }
+                    });
+                }
+                if (res.data[3]) {
+                    require.async(['wiki-lemma:widget/promotion/topAd/topAd.js'], function(topAd) {
+                        topAd(res.data[3]);
+                        nslog(10002201, location.href, {
+                            adId: res.data[3][0].adId,
+                            adTitle: res.data[3][0].name,
+                            adPos: 3
+                        });
+                    });
+                }
+                if (res.data[4]) {
+                    require.async(['wiki-lemma:widget/promotion/rightAd/rightAd.js'], function(rightAd) {
+                        rightAd(res.data[4]);
+                        nslog(10002201, location.href, {
+                            adId: res.data[4][0].adId,
+                            adTitle: res.data[4][0].name,
+                            adPos: 4
+                        });
+                    });
+                }
+            } else {
+                return;
+            }
+
+            setTimeout(function () {
+                var elemArr = {};
+                res.data[1] && res.data[1].length > 0 && (elemArr['lemma-vbaike-ad'] = $('.lemmaWgt-promotion-vbaike .promotion_viewport a:eq(0) img').get(0));
+                res.data[2] && res.data[2].length > 0 && (elemArr['lemma-slide-ad'] = $('.lemmaWgt-promotion-slide .promotion_viewport a:eq(0) img').get(0));
+                res.data[3] && res.data[3].length > 0 && (elemArr['lemma-navbar-ad'] = {
+                    node: $('.header [nslog-type="10002202"]').get(0),
+                    validations: {
+                        'noBackgroundImage': function() {
+                            return $('.header [nslog-type="10002202"]').css('background-image').indexOf(res.data[3][0].picUrl) < 0
+                        }
+                    }
+                });
+                res.data[4] && res.data[4].length > 0 && (elemArr['lemma-side-ad'] = {
+                    node: $('.right-ad img').get(0),
+                    validations: {
+                        'noBackgroundImage': function() {
+                            return $('.right-ad img').attr('src').indexOf(res.data[4][0].picUrl) < 0
+                        }
+                    }
+                });
+
+                testElem.log(elemArr, 70000102);
+            }, 1000);
+        },
+        error: function () {
+            // log 词条页广告被拦截情况（此处 log 请求失败）
+            nslog(70000101, window.location.href, {
+                api: 'lemma-ad',
+                action: 'error'
+            });
+        }
+    });
+
+    // 设置分享内容
+    window.BKShare.setCommon({
+        bdText: "\u3010\u5a01\u4f50\u592b\u535a\u5f08_\u767e\u5ea6\u767e\u79d1\u3011\u5a01\u4f50\u592b\u535a\u5f08\uff08Wythoff Game\uff09\uff1a\u6709\u4e24\u5806\u5404\u82e5\u5e72\u4e2a\u7269\u54c1\uff0c\u4e24\u4e2a\u4eba\u8f6e\u6d41\u4ece\u67d0\u4e00\u5806\u6216\u540c\u65f6\u4ece\u4e24\u5806\u4e2d\u53d6\u540c\u6837\u591a\u7684\u7269\u54c1\uff0c\u89c4\u5b9a\u6bcf\u6b21\u81f3\u5c11\u53d6\u4e00\u4e2a\uff0c\u591a\u8005\u4e0d\u9650\uff0c\u6700\u540e\u53d6\u5149\u8005\u5f97\u80dc\u3002.....\uff08\u5206\u4eab\u81ea@\u767e\u5ea6\u767e\u79d1\uff09",
+        bdDesc: '',
+        bdUrl: 'http:\/\/baike.baidu.com\/item\/%E5%A8%81%E4%BD%90%E5%A4%AB%E5%8D%9A%E5%BC%88\/19858256',
+        bdPic: ''
+    });
+
+    // 底部投诉带入当前页面 url
+    var map = [1, 2, 4, 3];
+    $('.wgt-footer-main .suggestion').find('a').each(function(i) {
+        $(this).attr('href', 'http://tousu.baidu.com/baike/add?word=%E5%A8%81%E4%BD%90%E5%A4%AB%E5%8D%9A%E5%BC%88' + '&&submit_link=' + encodeURIComponent(window.location.href) + '#' + map[i]);
+    });
+}();
+!function(){      require('wiki-common:widget/component/psLink/psLink.js');
+    }();</script>
+<script type="text/javascript">
+  var Hunter = window.Hunter || {};
+  Hunter.userConfig = Hunter.userConfig || [];
+  </script>
+<script type="text/javascript" src="http://img.baidu.com/hunter/baike.js?st=17019" defer></script><script type="text/javascript">
+  // DOM Ready时，统计用户可操作时间。
+  alog('speed.set', 'drt', +new Date);
+
+  // 配置 PD 监控。
+  window.alogObjectConfig = {
+    product: '103',
+    page: '103_1',
+    monkey_page: '',
+    speed_page: '',
+    speed: {
+      sample: '0.008'
+    },
+    monkey: {
+      sample: '1',
+      hid: '1533'
+    },
+    exception: { 
+      sample: '0.004'
+    },
+    feature: {
+      sample: '0.004'
+    },
+    csp: {
+      sample: '0.008',
+      'default-src': [
+        {match: '*.baidu.com,*.bdimg.com,localhost', target: 'Accept'},
+        {match: '*', target: 'Accept,Warn'}
+      ]
+    }
+  };
+
+  void function(a,b,c,d,e,f){function g(b){a.attachEvent?a.attachEvent("onload",b,!1):a.addEventListener&&a.addEventListener("load",b)}function h(a,c,d){d=d||15;var e=new Date;e.setTime((new Date).getTime()+1e3*d),b.cookie=a+"="+escape(c)+";path=/;expires="+e.toGMTString()}function i(a){var c=b.cookie.match(new RegExp("(^| )"+a+"=([^;]*)(;|$)"));return null!=c?unescape(c[2]):null}function j(){var a=i("PMS_JT");if(a){h("PMS_JT","",-1);try{a=a.match(/{["']s["']:(\d+),["']r["']:["']([\s\S]+)["']}/),a=a&&a[1]&&a[2]?{s:parseInt(a[1]),r:a[2]}:{}}catch(c){a={}}a.r&&b.referrer.replace(/#.*/,"")!=a.r||alog("speed.set","wt",a.s)}}if(a.alogObjectConfig){var k=a.alogObjectConfig.sample,l=a.alogObjectConfig.rand;if("https:"===a.location.protocol){if(d="https://gss2.bdstatic.com/70cFsjip0QIZ8tyhnq"+d,!k||!l)return}else d="http://img.baidu.com"+d;k&&l&&l>k||(g(function(){alog("speed.set","lt",+new Date),e=b.createElement(c),e.async=!0,e.src=d+"?v="+~(new Date/864e5),f=b.getElementsByTagName(c)[0],f.parentNode.insertBefore(e,f)}),j())}}(window,document,"script","/hunter/alog/dp.min.js");
+</script>
+</html>
