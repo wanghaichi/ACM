@@ -1,0 +1,9 @@
+{
+	"server":"ss.oursays.com",
+	"server_port":10005,
+	"local_port":1080,
+	"password":"hhxxttxs",
+	"timeout":600,
+	"method":"aes-256-cfb"
+}
+
