@@ -2,26 +2,29 @@
 
 echo -e "/**************************************************************\n" > b.cpp
 
-echo -e "AUTHOR: Hardy\n" >> b.cpp
+echo -ne "AUTHOR: Hardy
 
-echo -ne 'TIME: ' >> b.cpp
+TIME:  `date`
 
-echo `date` >> b.cpp
+ID:
 
-echo -e "\nID:\n" >> b.cpp
+TYPE:
 
-echo -e "TYPE:\n" >> b.cpp
+DETAIL:
 
-echo -e "DETAIL:\n" >> b.cpp
+TACTICS:
 
-echo -e "TACTICS:\n" >> b.cpp
+***************************************************************/
 
-echo -e "***************************************************************/\n" >> b.cpp
-
-echo '#include <iostream>
+#include <iostream>
 #include <cstdio>
 #include <cstring>
 #include <algorithm>
+#include <vector>
+#include <cmath>
+#include <queue>
+#include <stack>
+
 #define MAX(a, b) (a > b ? a : b)
 #define MIN(a, b) (a > b ? b : a)
 #define CL(a) memset(a, 0, sizeof(a));
@@ -39,6 +42,6 @@ int main()
 	
 	
 	return 0;
-}' >> b.cpp
+}" >> b.cpp
 
 echo -e "\n\n\n\n\n\n\n" >> b.cpp
